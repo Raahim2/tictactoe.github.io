@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+	<title>Tic Tac Toe 5 X 5</title>
+	<style>
+		body {
+			background-color: black;
+			font-family: 'Archivo Black', sans-serif;
+		}
+
+		h1 {
+			font-size: 50px;
+			color: white;
+		}
+
+		.container {
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		.board {
+			display: flex;
+			flex-wrap: wrap;
+			width: 915px;
+			margin: 0 auto;
+
+		}
+
+		.cell {
+			font-family: 'Archivo Black', sans-serif;
+			width: 175px;
+			height: 175px;
+			border: 5px solid rgb(255, 255, 255);
+			font-size: 150px;
+			text-align: center;
+			line-height: 175px;
+			cursor: pointer;
+			color: white;
+		}
+
+
+		.b-t {
+			border-top: 0;
+		}
+
+		.b-r {
+			border-right: 0;
+		}
+
+		.b-b {
+			border-bottom: 0;
+
+		}
+
+		.b-l {
+			border-left: 0;
+
+		}
+		.cell:hover {
+			background-color: #ff0000;
+		}
+
+		#status {
+			font-size: 50px;
+			color: white;
+		}
+
+		.reset {
+			font-size: 50px;
+			font-family: 'Archivo Black', sans-serif;
+			border: 5px solid rgb(255, 255, 255);
+			border-radius: 20px;
+			color: white;
+			background-color: black;
+
+		}
+	</Style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Tic Tac Toe 5 X 5</h1>
+		<div class="board">
+			<div class="cell  b-t b-l" onclick="playMove(0)"></div>
+			<div class="cell  b-t" onclick="playMove(1)"></div>
+			<div class="cell  b-t" onclick="playMove(2)"></div>
+			<div class="cell  b-t " onclick="playMove(3)"></div>
+			<div class="cell  b-t b-r" onclick="playMove(4)"></div>
+
+			<div class="cell b-l" onclick="playMove(5)"></div>
+			<div class="cell " onclick="playMove(6)"></div>
+			<div class="cell " onclick="playMove(7)"></div>
+			<div class="cell " onclick="playMove(8)"></div>
+			<div class="cell b-r" onclick="playMove(9)"></div>
+
+			<div class="cell b-l" onclick="playMove(10)"></div>
+			<div class="cell " onclick="playMove(11)"></div>
+			<div class="cell " onclick="playMove(12)"></div>
+			<div class="cell " onclick="playMove(13)"></div>
+			<div class="cell b-r" onclick="playMove(14)"></div>
+
+			<div class="cell b-l" onclick="playMove(15)"></div>
+            <div class="cell " onclick="playMove(16)"></div>
+			<div class="cell " onclick="playMove(17)"></div>
+			<div class="cell " onclick="playMove(18)"></div>
+			<div class="cell b-r" onclick="playMove(19)"></div>
+
+            <div class="cell b-b b-l" onclick="playMove(20)"></div>
+            <div class="cell b-b" onclick="playMove(21)"></div>
+			<div class="cell b-b" onclick="playMove(22)"></div>
+			<div class="cell b-b " onclick="playMove(23)"></div>
+			<div class="cell b-b b-r" onclick="playMove(24)"></div>
+
+		</div>
+		<p id="status"></p>
+		<button class="reset" onclick="reset()">Reset</button>
+	</div>
+
+	<script>
+		let board = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]; // game board
+		let player = "X"; // current player
+		let gameover = false; // gameover flag
+
+		function playMove(index) {
+			if (!gameover && board[index] == "") {
+				board[index] = player;
+				document.getElementsByClassName("cell")[index].innerHTML = player;
+				if (checkWin()) {
+					document.getElementById("status").innerHTML = `${player} wins!`;
+					gameover = true;
+				} else if (board.indexOf("") == -1) {
+					document.getElementById("status").innerHTML = "It's a tie!";
+					gameover = true;
+				} else {
+					player = player == "X" ? "O" : "X";
+					document.getElementById("status").innerHTML = `It's ${player}'s turn`;
+				}
+			}
+		}
+
+		function checkWin() {
+			const lines = [
+				[0, 1, 2, 3],
+				[4, 5, 6, 7],
+				[8, 9, 10, 11],
+				[12, 13, 14, 15],
+				[0, 4, 8, 12],
+				[1, 5, 9, 13],
+				[2, 6, 10, 14],
+				[3, 7, 11, 15],
+				[0, 5, 10, 15],
+				[3, 6, 9, 12]
+			];
+			for (let i = 0; i < lines.length; i++) {
+				const [a, b, c] = lines[i];
+				if (board[a] != "" && board[a] == board[b] && board[a] == board[c]) {
+					return true;
+				}
+			}
+			return false
+		}
+
+		function reset() {
+			board = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+			player = "X";
+			gameover = false;
+			document.getElementById("status").innerHTML = `It's ${player}'s turn`;
+			const cells = document.getElementsByClassName("cell");
+			for (let i = 0; i < cells.length; i++) {
+				cells[i].innerHTML = "";
+			}
+		}
+
+
+
+	</script>
+</body>
+
+</html>
+

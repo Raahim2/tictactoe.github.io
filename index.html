@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+
+    body {
+        background: url(https://i.pinimg.com/originals/df/6e/8d/df6e8d2fe3957652c6f1541f664785c0.jpg) no-repeat center center/cover; 
+        font-family: 'Rubik Wet Paint', cursive;
+    }
+
+    .board {
+        display: flex;
+        flex-wrap: wrap;
+        width: 415px;
+        margin: 0 auto;
+        margin-top: 60px;
+        
+
+    }
+         .cell {
+    font-family: 'Rubik Wet Paint', cursive;
+    width: 125px;
+    height: 125px;
+    border: 8px solid rgb(0, 0, 0);
+    font-size: 100px;
+    text-align: center;
+    line-height: 125px;
+    cursor: pointer;
+    color: rgb(0, 0, 0); 
+}
+    
+
+    .b-t {
+        border-top: 0;
+    }
+
+    .b-r {
+        border-right: 0;
+    }
+
+    .b-b {
+        border-bottom: 0;
+
+    }
+
+    .b-l {
+        border-left: 0;
+
+    }
+
+    .font {
+        font-size: 60px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 50px;
+        margin-top: 10px;
+    }
+    .btn{
+        text-align: center;
+    }
+    .btns{
+        text-align: center;
+    margin: 30px;
+    border: 5px solid black;
+    font-size: 34px;
+    height: 64px;
+    width: 221px;
+    font-family: 'Rubik Wet Paint', cursive;
+    border-radius: 15px;
+    background-color: rgb(206, 106, 106);
+    }
+
+</style>
+
+<body>
+    <header>
+    <h1>Welcome to Tic-Tac-Toe</h1>
+    <div class="board">
+        <div class="cell b-t b-l font">TIC</div>
+        <div class="cell b-t">X</div>
+        <div class="cell b-t b-r">X</div>
+
+        <div class="cell b-l">O</div>
+        <div class="cell font">TAC</div>
+        <div class="cell b-r">X</div>
+
+        <div class="cell b-b b-l">O</div>
+        <div class="cell b-b">O</div>
+        <div class="cell b-b b-r font">TOE</div>
+    </div>
+
+    <div class="btn">
+       <a href="1P.html" target="_blank"> <button class="btns">1 Player</button> </a>
+       <a href="grid.html" target="_blank"> <button class="btns">2 Players</button> </a>
+    </div>
+</header>
+
+</body>
+
+</html>
